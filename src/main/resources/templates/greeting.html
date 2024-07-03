@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<p th:text="|Hello, ${name}!|" />
+
+<table border="1" style="width:300px">
+    <tr>
+        <td>Farm Id</td>
+        <td>Farm Name</td>
+        <td>Corp Type</td>
+        <td>Expected Amount</td>
+        <td>Actual Amount</td>
+    </tr>
+    <tr th:each="smokeTest : ${smokeTests}">
+        <td th:text="${smokeTest.farmId}"></td>
+        <td th:text="${smokeTest.farmName}"></td>
+        <td th:text="${smokeTest.corpType}"></td>
+        <td th:text="${smokeTest.expectedAmount}"></td>
+        <td th:text="${smokeTest.actualAmount}"></td>
+    </tr>
+</table>
+</body>
+</html>

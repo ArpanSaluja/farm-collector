@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+<table border="1" style="width:300px">
+    <tr>
+        <td>Farm Id</td>
+        <td>Farm Name</td>
+        <td>Corp Type</td>
+        <td>Expected Amount</td>
+        <td>Actual Amount</td>
+    </tr>
+    <tr th:each="reportData : ${reportDatas}">
+        <td th:text="${reportData.farmId}"></td>
+        <td th:text="${reportData.farmName}"></td>
+        <td th:text="${reportData.corpType}"></td>
+        <td th:text="${reportData.expectedAmount}"></td>
+        <td th:text="${reportData.actualAmount}"></td>
+    </tr>
+</table>
+</body>
+</html>
