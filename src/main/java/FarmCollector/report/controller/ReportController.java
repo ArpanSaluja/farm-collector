@@ -1,6 +1,7 @@
 package FarmCollector.report.controller;
 
 import FarmCollector.harvested.dao.HarvestedRepository;
+import FarmCollector.harvested.model.Harvested;
 import FarmCollector.planted.model.Planted;
 import FarmCollector.planted.dao.PlantedRepository;
 import FarmCollector.report.model.Report;
@@ -9,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Controller
@@ -30,12 +32,13 @@ public class ReportController {
     }
 
     private Report converPlanedToReport(Planted planted){
-        int actualAmount = harvestedRepository.findAll()
-                                                .stream()
-                                                .filter(item -> item.getFarmId() == planted.getFarmId())
-                                                .collect(Collectors.toList())
-                                                .get(0)
-                                                .getActualAmount();
+
+        List<Harvested> harvestedList = harvestedRepository.findAll()
+                .stream()
+                .filter(item -> item.getFarmId() == planted.getFarmId())
+                .collect(Collectors.toList());
+
+        int actualAmount = !harvestedList.isEmpty() ? harvestedList.get(0).getActualAmount() : -1;
         return new Report(planted.getFarmId(), planted.getFarmName(), planted.getCorpType(), planted.getExpectedAmount(), actualAmount);
     }
 

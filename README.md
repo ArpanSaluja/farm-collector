@@ -14,3 +14,5 @@ The following guides illustrate how to use some features concretely:
 **Swagger Doc** http://localhost:8080/swagger-ui/index.html
 
 **Report Page** http://localhost:8080/report
+
+**Test Case has been working for Planted Controller** 

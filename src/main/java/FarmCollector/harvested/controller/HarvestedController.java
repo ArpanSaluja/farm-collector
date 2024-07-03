@@ -3,6 +3,7 @@ package FarmCollector.harvested.controller;
 import FarmCollector.RecordNotFoundException;
 import FarmCollector.harvested.dao.HarvestedRepository;
 import FarmCollector.harvested.model.Harvested;
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,6 +17,8 @@ public class HarvestedController {
         this.repository = repository;
     }
 
+    @Operation(summary = "Get all Harvested",
+            description = "Get all Harvested. The response is Harvested object with id, farm id, farm name, corp type and expected amount.")
     @GetMapping("/harvested")
     List<Harvested> all() {
         return repository.findAll();
@@ -23,8 +26,8 @@ public class HarvestedController {
     // end::get-aggregate-root[]
 
     @PostMapping("/harvested")
-    Harvested newEmployee(@RequestBody Harvested newEmployee) {
-        return repository.save(newEmployee);
+    Harvested harvested(@RequestBody Harvested harvested) {
+        return repository.save(harvested);
     }
 
     @GetMapping("/harvested/{id}")

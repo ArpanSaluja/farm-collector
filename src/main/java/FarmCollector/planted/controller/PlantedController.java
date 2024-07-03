@@ -28,8 +28,8 @@ public class PlantedController {
     @Operation(summary = "Post planted details",
             description = "Post planted details. The response is Planted object with id, farm id, planting area, farm name, corp type and expected amount.")
     @PostMapping("/planted")
-    Planted newEmployee(@RequestBody Planted newEmployee) {
-        return repository.save(newEmployee);
+    Planted planted(@RequestBody Planted planted) {
+        return repository.save(planted);
     }
 
     @Operation(summary = "Get planted for specific id",
