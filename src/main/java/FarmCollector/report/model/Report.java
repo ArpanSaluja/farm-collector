@@ -1,4 +1,4 @@
-package FarmCollector;
+package FarmCollector.report.model;
 
 public class Report {
 

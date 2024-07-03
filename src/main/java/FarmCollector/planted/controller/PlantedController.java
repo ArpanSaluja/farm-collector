@@ -1,7 +1,9 @@
-package FarmCollector;
+package FarmCollector.planted.controller;
 
+import FarmCollector.RecordNotFoundException;
+import FarmCollector.planted.dao.PlantedRepository;
+import FarmCollector.planted.model.Planted;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -36,6 +38,6 @@ public class PlantedController {
     Planted one(@PathVariable Long id) {
 
         return repository.findById(id)
-                .orElseThrow(() -> new EmployeeNotFoundException(id));
+                .orElseThrow(() -> new RecordNotFoundException(id));
     }
 }

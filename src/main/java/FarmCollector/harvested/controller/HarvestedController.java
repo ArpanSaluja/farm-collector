@@ -1,5 +1,8 @@
-package FarmCollector;
+package FarmCollector.harvested.controller;
 
+import FarmCollector.RecordNotFoundException;
+import FarmCollector.harvested.dao.HarvestedRepository;
+import FarmCollector.harvested.model.Harvested;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,6 +31,6 @@ public class HarvestedController {
     Harvested one(@PathVariable Long id) {
 
         return repository.findById(id)
-                .orElseThrow(() -> new EmployeeNotFoundException(id));
+                .orElseThrow(() -> new RecordNotFoundException(id));
     }
 }

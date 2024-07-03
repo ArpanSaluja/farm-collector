@@ -1,4 +1,4 @@
-package FarmCollector;
+package FarmCollector.harvested.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
